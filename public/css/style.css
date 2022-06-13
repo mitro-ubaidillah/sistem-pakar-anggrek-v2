@@ -135,6 +135,10 @@ body{
 z-index: 2;
 }
 
+.form-signin input{
+    background-color: #F5F5F5;
+}
+
 .form-signin input[type="email"] {
 margin-bottom: -1px;
 border-bottom-right-radius: 0;
