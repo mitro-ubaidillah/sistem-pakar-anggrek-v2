@@ -21,73 +21,50 @@ class PenyakitController extends Controller
 
     public function create()
     {
-        // return view('admin.createPenyakit');
+        return view('admin.penyakit.create',[
+            "title"=>"Halaman Tambah Penyakit"
+        ]);
     }
 
     public function store(Request $request)
     {
-        // $this->validate($request,[
-        //     'penyakit'          => 'required|unique:penyakits,penyakit',
-        //     'detail_penyakit'   => 'required'
-        // ]);
+        // dd($request->all());
+        $validateData = $request->validate([
+            'nama'          => 'required|unique:penyakits,nama|alpha',
+            'keterangan'    => 'required',
+            'penanganan'    => 'required'
+        ]);
 
-        // $penyakit = Penyakit::create([
-        //     'penyakit'          => $request->penyakit,
-        //     'detail_penyakit'   => $request->detail_penyakit,
-
-        // ]);
-
-
-        // if($penyakit){
-        //     Alert::success('Berhasil', 'Kamu telah berhasil menambahkan data penyakit');
-        //     return redirect()->route('penyakit.index');
-        // }else{
-        //     Alert::error('Gagal', 'Data gagal ditambahkan');
-        //     return redirect()->route('penyakit.index');
-        // }
+        Penyakit::create($validateData);
+        return redirect('/admin/penyakit')->with('success', 'Penyakit berhasil didaftarkan!');
     }
 
     public function edit(Penyakit $penyakit)
     {
-        // return view('admin.editPenyakit', compact('penyakit'));
+        $title = "Halaman Edit Penyakit";
+        return view('admin.penyakit.edit', compact('penyakit', 'title'));
     }
 
     public function update(Request $request, Penyakit $penyakit)
     {
-        // $this->validate($request, [
-        //     'penyakit' => 'required',
-        //     'detail_penyakit' => 'required'
-        // ]);
+        $rules = [
+            'keterangan' => 'required',
+            'penanganan' => 'required'
+        ];
 
-        // $penyakit = Penyakit::findOrFail($penyakit->id);
+        if($request->nama != $penyakit->nama){
+            $rules['nama'] = 'required|unique:penyakits,nama|alpha';
+        }
+        $validateData = $request->validate($rules);
 
-        // $penyakit->update([
-        //     'penyakit' => $request->penyakit,
-        //     'detail_penyakit' => $request->detail_penyakit
-        // ]);
-
-        // if($penyakit){
-        //     //redirect pesan sukses
-        //     Alert::success('Berhasil', 'Kamu telah berhasil mengubah data penyakit');
-        //     return redirect()->route('penyakit.index');
-        // }else{
-        //     Alert::error('Gagal', 'Data gagal diubah');
-        //     return redirect()->route('penyakit.index');
-        // }
+        Penyakit::where('id', $penyakit->id)->update($validateData);
+        return redirect('/admin/penyakit')->with('success', 'Penyakit berhasil diubah!');
     }
 
     public function destroy($id)
     {
-        // $penyakit = Penyakit::findOrFail($id);
-        // $penyakit->delete();
-
-        // if($penyakit){
-        //     //redirect pesan sukses
-        //     Alert::success('Berhasil', 'Kamu telah berhasil menghapus data penyakit');
-        //     return redirect()->route('penyakit.index');
-        // }else{
-        //     Alert::error('Gagal', 'Data gagal dihapus');
-        //     return redirect()->route('penyakit.index');
-        // }
+        $penyakit = Penyakit::findOrFail($id);
+        $penyakit->delete();
+        return redirect('/admin/penyakit')->with('success', 'Penyakit berhasil dihapus!');
     }
 }

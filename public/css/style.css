@@ -17,6 +17,9 @@ body{
 .bg-second-alternative{
     background-color: #D6E6F2;
 }
+.bg-danger-new{
+    background-color: #d63b2d;
+}
 
 /* button */
 .btn-second{

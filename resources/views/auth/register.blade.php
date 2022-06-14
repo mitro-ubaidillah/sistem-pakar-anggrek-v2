@@ -16,7 +16,7 @@
 <main class="form-signin m-auto p-3 mb-5">
     <h1 class="h3 mb-3 font-color-default mb-5 mt-3 text-center">Halaman Register User</h1>
     <form action="/register" method="POST">
-        @csrf
+      @csrf
       <div class="form-floating mb-3">
         <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" autofocus required value="{{ old('name') }}">
         <label for="name">Nama</label>
