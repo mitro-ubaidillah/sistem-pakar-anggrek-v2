@@ -16,7 +16,7 @@ class PenyakitController extends Controller
     {
         $title = "Halaman Penyakit";
         $penyakits = Penyakit::latest()->simplePaginate(5);
-        return view('admin.penyakit.penyakit', compact('penyakits','title'));
+        return view('admin.penyakit.index', compact('penyakits','title'));
     }
 
     public function create()
@@ -30,7 +30,7 @@ class PenyakitController extends Controller
     {
         // dd($request->all());
         $validateData = $request->validate([
-            'nama'          => 'required|unique:penyakits,nama|alpha',
+            'nama'          => 'required|unique:penyakits,nama',
             'keterangan'    => 'required',
             'penanganan'    => 'required'
         ]);
