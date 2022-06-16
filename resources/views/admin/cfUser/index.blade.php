@@ -30,10 +30,10 @@
                             @forelse ($cfUsers as $cfUser)
                                 <tr>
                                     <td>{{ $cfUser->keterangan }}</td>
-                                    <td>{{ $cfUser->cfUser }}</td>
+                                    <td>{{ $cfUser->cf_user }}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda yakin akan menghapus data ini ?');" action="{{ route('cfUser.destroy', $gejala->id) }}" method="POST">
-                                            <a href="{{ route('cfUser.edit', $gejala->id) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                        <form onsubmit="return confirm('Apakah Anda yakin akan menghapus data ini ?');" action="{{ route('cfUser.destroy', $cfUser->id) }}" method="POST">
+                                            <a href="{{ route('cfUser.edit', $cfUser->id) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>

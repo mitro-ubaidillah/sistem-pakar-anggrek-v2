@@ -53,7 +53,7 @@ class PenyakitController extends Controller
         ];
 
         if($request->nama != $penyakit->nama){
-            $rules['nama'] = 'required|unique:penyakits,nama|alpha';
+            $rules['nama'] = 'required|unique:penyakits,nama';
         }
         $validateData = $request->validate($rules);
 

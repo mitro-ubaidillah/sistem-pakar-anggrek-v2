@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PenyakitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\CfUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +33,4 @@ Route::post('/login', [LoginController::class, 'authenticated']);
 Route::get('/admin/dashboard', [AdminController::class, 'index'])->middleware('auth');
 Route::resource('/admin/penyakit', PenyakitController::class)->middleware('auth');
 Route::resource('/admin/gejala', GejalaController::class)->middleware('auth');
+Route::resource('/admin/cfUser', CfUserController::class)->middleware('auth');
