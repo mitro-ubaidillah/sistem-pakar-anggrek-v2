@@ -17,6 +17,7 @@ class CreateResultDiagnosesTable extends Migration
             $table->id();
             $table->string('gejala');
             $table->string('penyakit');
+            $table->float('total_cf_role');
             $table->float('hasil_cbr');
             $table->float('hasil_cf');
             $table->string('kemungkinan');

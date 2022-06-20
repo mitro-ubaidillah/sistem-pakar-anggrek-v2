@@ -62,15 +62,31 @@ class DiagnosaController extends Controller
                 }
             }
         }
+        // dd($resultCFHE);
 
         //Perhitungan CBR
         foreach($cases as $case){
-            // dd(explode(",",$case->gejala));
+            // dd($case->penyakit);
             $dataCase = explode(",",$case->gejala);
-            
+            foreach($resultCFHE as $key => $data){
+                if($key == $case->penyakit){
+                    $resultCBR[$key] = 0;
+                    for($i = 0; $i < count($data); $i++){
+                        foreach($dataCase as $item){
+                            if($data[$i]['gejala'] == $item){
+                                $resultCBR[$key] += $data[$i]['cf_role'];
+                            }else{
+                                continue;
+                            }
+                        }
+                    } 
+                    $resultCBR[$key] = $resultCBR[$key] / $case->total_cf_role;
+                }
+            }
+            // dd($dataCase);
         }
+        // dd($resultCBR);
 
-        dd($resultCFHE);
         //perhitungan CF
         foreach($resultCFHE as $key => $data){
             foreach($penyakit as $item){
@@ -78,18 +94,33 @@ class DiagnosaController extends Controller
                     for($i = 0; $i < count($data); $i++){  
                         if($i == 0){
                             $resultCF[$item] = $data[$i]['cf_he'];
+                            $totalCFRole[$item] = $data[$i]['cf_role'];
                         }else{
                             $resultCF[$item] = $resultCF[$item] + $data[$i]['cf_he'] * (1 - $resultCF[$item]);
+                            $totalCFRole[$item] += $data[$i]['cf_role'];
                         }
                         $dataGejala[$item][$i] = $data[$i]['gejala'];
+                        
                     }
-                    $dataResult = ResultDiagnose::create([
-                        'gejala' => implode(",",$dataGejala[$item]),
-                        'penyakit' => $item,
-                        'hasil_cbr' => 0,
-                        'hasil_cf' => $resultCF[$item],
-                        'kemungkinan' => 0
-                ]);
+                //     $dataResult = ResultDiagnose::create([
+                //         'gejala' => implode(",",$dataGejala[$item]),
+                //         'penyakit' => $item,
+                //         'total_cf_role' => $totalCFRole[$item],
+                //         'hasil_cbr' => 0,
+                //         'hasil_cf' => $resultCF[$item],
+                //         'kemungkinan' => 0
+                // ]);
+                // dd($resultCF[$item]);
+                $propability = max($resultCBR[$item],$resultCF[$item]);
+                dd($propability);
+                $dataResult = [
+                    'gejala' => implode(",",$dataGejala[$item]),
+                    'penyakit' => $item,
+                    'total_cf_role' => $totalCFRole[$item],
+                    'hasil_cbr' => $resultCBR[$item],
+                    'hasil_cf' => $resultCF[$item],
+                    'kemungkinan' => 0
+                ];
                 }
             }
         }
