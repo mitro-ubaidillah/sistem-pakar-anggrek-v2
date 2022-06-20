@@ -7,6 +7,7 @@ use App\Http\Controllers\PenyakitController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\CfUserController;
+use App\Http\Controllers\DiagnosaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +24,9 @@ Route::get('/', function () {
         "title" => "Home"
     ]);
 });
+
+Route::get('/diagnosa', [DiagnosaController::class, 'index']);
+Route::post('/diagnose', [DiagnosaController::class, 'diagnose'])->name('diagnose');
 
 // Route::get('/login','LoginController@index');
 Route::get('/register', [RegisterController::class, 'index'])->name('login')->middleware('guest');

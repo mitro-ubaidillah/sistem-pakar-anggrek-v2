@@ -5,10 +5,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card border-0 shadow rounded">
+                        <div class="card-header bg-one">
+                            @include('partials.navAdmin')
+                        </div>
                         <div class="card-body">
                         <a href="{{ route('gejala.index') }}" class="btn bg-one font-color-default-w fw-semibold mb-3">Kembali Ke Halaman Gejala</a>
                         <h3 class="text-center font-color-default">Edit Gejala</h3>
-                            <form action="{{ route('gejala.update') }}" method="POST" novalidate>
+                            <form action="{{ route('gejala.update', $gejala->id) }}" method="POST" novalidate>
                                 @csrf
                                 @method('PUT')
                                 <div class="row mt-5 mb-5">

@@ -5,10 +5,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card border-0 shadow rounded">
+                        <div class="card-header bg-one">
+                            @include('partials.navAdmin')
+                        </div>
                         <div class="card-body">
                         <a href="{{ route('cfUser.index') }}" class="btn bg-one font-color-default-w fw-semibold mb-3">Kembali Ke Halaman Gejala</a>
                         <h3 class="text-center font-color-default">Daftarkan CF User Baru</h3>
-                            <form action="/admin/cfUser/{{ $cfUser->id }}" method="POST" novalidate>
+                            <form action="{{  route('cfUser.update',$cfUser->id) }}" method="POST" novalidate>
                                 @csrf
                                 @method('PUT')
                                 <div class="row mt-5 mb-5">

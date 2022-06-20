@@ -28,7 +28,7 @@ class GejalaController extends Controller
         $validateData = $request->validate([
             'gejala'          => 'required',
             'penyakit_id'    => 'required',
-            'cf_role'    => 'required|numeric'
+            'cf_role'        => 'required'
         ]);
 
         Gejala::create($validateData);
