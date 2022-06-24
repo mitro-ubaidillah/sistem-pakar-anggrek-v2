@@ -32,7 +32,12 @@
               <li><a class="dropdown-item" href="/admin/symptom">Daftar Gejala</a></li>
               <li><a class="dropdown-item" href="/admin/cfUser">Daftar CF User</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="{{ ro }}ute('logout')}}">Logout</a></li>
+              <li>
+                <form action="{{ route('logout') }}" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item">Logout</button>
+                </form>
+              </li>
             </ul>
           </li>
         @else
