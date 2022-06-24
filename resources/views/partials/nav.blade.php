@@ -11,13 +11,13 @@
           <a class="nav-link font-color-primary ms-3 {{ ($title === "Home") ? 'active bg-one' : '' }}" href="/">Halaman Utama</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-color-primary ms-3 {{ ($title === "About") ? 'active bg-one' : '' }}" href="/about">Diagnosa</a>
+          <a class="nav-link font-color-primary ms-3 {{ ($title === "About") ? 'active bg-one' : '' }}" href="/diagnosa">Diagnosa</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-color-primary ms-3" href="#">Kontak Kami</a>
+          <a class="nav-link font-color-primary ms-3" href="#kontak">Kontak Kami</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font-color-primary ms-3" href="#">Buku Panduan</a>
+          <a class="nav-link font-color-primary ms-3" href="#bukupanduan">Buku Panduan</a>
         </li>
       </ul>
       <ul class="navbar-nav ms-auto">
@@ -28,11 +28,11 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="/admin/dashboard">Dashboard</a></li>
-              <li><a class="dropdown-item" href="/admin/penyakit">Daftar Penyakit</a></li>
-              <li><a class="dropdown-item" href="/admin/gejala">Daftar Gejala</a></li>
+              <li><a class="dropdown-item" href="/admin/disease">Daftar Penyakit</a></li>
+              <li><a class="dropdown-item" href="/admin/symptom">Daftar Gejala</a></li>
               <li><a class="dropdown-item" href="/admin/cfUser">Daftar CF User</a></li>
               <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="{{ ro }}ute('logout')}}">Logout</a></li>
             </ul>
           </li>
         @else

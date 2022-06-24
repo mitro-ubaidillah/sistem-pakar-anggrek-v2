@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Gejala extends Model
+class Symptom extends Model
 {
     use HasFactory;
-
     protected $guarded = ['id'];
 
-    public function penyakit()
+    public function disease()
     {
-        return $this->belongsTo(Penyakit::class);
+        return $this->belongsTo(Disease::class);
     }
 }

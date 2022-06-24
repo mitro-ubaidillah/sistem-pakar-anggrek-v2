@@ -1,4 +1,4 @@
-<div class="bg-second-alternative">
+<div class="bg-second-alternative" id="kontak">
     <div class="container text-center pt-5 pb-5">
         <h3 class="text-center pb-4">Kontak Kami</h3>
         <div class="row">

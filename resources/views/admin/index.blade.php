@@ -3,7 +3,7 @@
     <main class="mb-5">
         <div class="container">
             <div class="card  border-0 shadow rounded">
-                <div class="card-header">
+                <div class="card-header bg-one">
                     @include('partials.navAdmin')
                 </div>
                 <div class="card-body p-5">
@@ -14,16 +14,16 @@
                         <div class="col-6 m-auto">
                             <div class="row">
                                 <div class="col-6 mb-3">
-                                    <a href="{{ route('penyakit.index') }}" class="btn btn-custom-one"><i class="bi bi-journal-medical"></i> Lihat Penyakit yang terdaftar</a>
+                                    <a href="{{ route('disease.index') }}" class="btn btn-custom-one"><i class="bi bi-journal-medical"></i> Lihat Penyakit yang terdaftar</a>
                                 </div>
                                 <div class="col-6 mb-3">
-                                    <a href="{{ route('gejala.index') }}" class="btn btn-custom-one"><i class="bi bi-clipboard-pulse"></i> Lihat Gejala yang terdaftar</a>
+                                    <a href="{{ route('symptom.index') }}" class="btn btn-custom-one"><i class="bi bi-clipboard-pulse"></i> Lihat Gejala yang terdaftar</a>
                                 </div>
                                 <div class="col-6 mb-3">
                                     <a href="{{ route('cfUser.index') }}" class="btn btn-custom-one"><i class="bi bi-journal"></i> Lihat CF User yang terdaftar</a>
                                 </div>
                                 <div class="col-6 mb-3">
-                                    <a href="{{ route('penyakit.index') }}" class="btn btn-custom-one"><i class="bi bi-clipboard2-check"></i> Lihat Kasus yang terdaftar</a>
+                                    <a href="" class="btn btn-custom-one"><i class="bi bi-clipboard2-check"></i> Lihat Kasus yang terdaftar</a>
                                 </div>
                             </div>
                         </div>

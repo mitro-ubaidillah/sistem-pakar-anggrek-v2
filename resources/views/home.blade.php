@@ -15,7 +15,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col text-center">
-                        <a href="#" class="btn btn-second f-24">Coba Sekarang</a>
+                        <a href="/diagnosa" class="btn btn-second f-24">Coba Sekarang</a>
                     </div>
                 </div>
             </div>
@@ -91,7 +91,7 @@
             </div>
         </div>
     </div>
-    <div class="bg-one font-color-default-w">
+    <div class="bg-one font-color-default-w" id="#penyakit">
         <div class="container pt-5 pb-5">
             <div class="row">
                 <div class="col-12 col-md-6">
@@ -137,7 +137,7 @@
             </div>
         </div>
     </div>
-    <div class="container text-center pt-5 pb-5 font-color-default">
+    <div class="container text-center pt-5 pb-5 font-color-default" id="bukupanduan">
         <h2 class="mb-5">Panduan Penggunaan Aplikasi</h2>
         <p class="mb-4"><span class="number-icon border-black">1</span></p>
         <p class="mb-4">Penyakit Pertama</p>

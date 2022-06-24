@@ -20,7 +20,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a href="{{ route('penyakit.create') }}" class="btn bg-one font-color-default-w fw-semibold mb-3"><i class="bi bi-plus-square"></i> Tambah Data Penyakit</a>
+                        <a href="{{ route('disease.create') }}" class="btn bg-one font-color-default-w fw-semibold mb-3"><i class="bi bi-plus-square"></i> Tambah Data Penyakit</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -31,14 +31,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($penyakits as $penyakit)
+                            @forelse ($diseases as $disease)
                                 <tr>
-                                    <td>{{ $penyakit->nama }}</td>
-                                    <td>{{ $penyakit->keterangan }}</td>
-                                    <td>{{ $penyakit->penanganan }}</td>
+                                    <td>{{ $disease->name }}</td>
+                                    <td>{{ $disease->description }}</td>
+                                    <td>{{ $disease->treatment }}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda yakin akan menghapus data ini ?');" action="{{ route('penyakit.destroy', $penyakit->id) }}" method="POST">
-                                            <a href="{{ route('penyakit.edit', $penyakit->id) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                        <form onsubmit="return confirm('Apakah Anda yakin akan menghapus data ini ?');" action="{{ route('disease.destroy', $disease->id) }}" method="POST">
+                                            <a href="{{ route('disease.edit', $disease->id) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
@@ -53,8 +53,8 @@
                             </tbody>
                         </table>  
                         <div class="clear"></div>
-                        {{ $penyakits->links() }}
-                        <a href="/admin/penyakit" class="btn bg-second fw-semibold float-end">Kembali ke halaman admin</a>
+                        {{ $diseases->links() }}
+                        <a href="/admin/dashboard" class="btn bg-second fw-semibold float-end">Kembali ke halaman admin</a>
                     </div>
                 </div>
             </div>

@@ -6,8 +6,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ms-auto">
-          <a class="nav-link font-color-default-w fw-semibold" href="{{ route('penyakit.index') }}">Daftar Penyakit</a>
-          <a class="nav-link font-color-default-w fw-semibold" href="{{ route('gejala.index') }}">Daftar Gejala</a>
+          <a class="nav-link font-color-default-w fw-semibold" href="{{ route('disease.index') }}">Daftar Penyakit</a>
+          <a class="nav-link font-color-default-w fw-semibold" href="{{ route('symptom.index') }}">Daftar Gejala</a>
           <a class="nav-link font-color-default-w fw-semibold" href="{{ route('cfUser.index') }}">Daftar CF User</a>
         </div>
       </div>

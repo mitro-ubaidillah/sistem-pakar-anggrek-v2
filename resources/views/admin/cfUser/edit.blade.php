@@ -18,8 +18,8 @@
                                     <div class="col-lg-8 m-auto">
                                         <div class="col-12 mb-3">
                                             <label class="label-input form-label">Nama CF User</label>
-                                            <input type="text" name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" required value="{{ old('keterangan', $cfUser->keterangan) }}">
-                                            @error('keterangan')
+                                            <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" required value="{{ old('description', $cfUser->description) }}">
+                                            @error('description')
                                                 <div class="invalid-feedback">
                                                     {{ $message }}
                                                 </div>

@@ -32,7 +32,7 @@
                             <tbody>
                             @forelse ($cfUsers as $cfUser)
                                 <tr>
-                                    <td>{{ $cfUser->keterangan }}</td>
+                                    <td>{{ $cfUser->description }}</td>
                                     <td>{{ $cfUser->cf_user }}</td>
                                     <td class="text-center">
                                         <form onsubmit="return confirm('Apakah Anda yakin akan menghapus data ini ?');" action="{{ route('cfUser.destroy', $cfUser->id) }}" method="POST">

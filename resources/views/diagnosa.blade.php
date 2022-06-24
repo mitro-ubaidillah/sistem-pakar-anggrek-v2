@@ -12,12 +12,12 @@
                 <div class="card-body p-5">
                     <form action="{{ route('diagnose') }}" method="POST">
                         @csrf
-                        @foreach ($gejalas as $gejala)
+                        @foreach ($symptoms as $symptom)
                         <div class="input-group mb-3">
-                            <label class="input-group-text" for="inputGroupSelect01" style="width:70%">Apakah Anggrek kamu mengalami {{ $gejala->gejala }} ?</label>
-                            <select class="form-select" id="inputGroupSelect01" style="width:30%" name="{{ str_replace(" ","",$gejala->gejala) }}">
+                            <label class="input-group-text" for="inputGroupSelect01" style="width:70%">Apakah Anggrek kamu mengalami {{ $symptom->name }} ?</label>
+                            <select class="form-select" id="inputGroupSelect01" style="width:30%" name="{{ str_replace(" ","",$symptom->name) }}">
                                 @foreach ($cfUsers as $cfUser)
-                                    <option value="{{ $cfUser->cf_user }}">{{ $cfUser->keterangan }}</option>
+                                    <option value="{{ $cfUser->cf_user }}">{{ $cfUser->description }}</option>
                                 @endforeach
                             </select>
                         </div>           

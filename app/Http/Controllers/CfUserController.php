@@ -33,7 +33,7 @@ class CfUserController extends Controller
     {
         $validateData = $request->validate([
             'cf_user' => 'required|numeric|unique:cf_users,cf_user',
-            'keterangan' => 'required|unique:cf_users,keterangan'
+            'description' => 'required|unique:cf_users,description'
         ]);
 
         cfUser::create($validateData);
@@ -49,8 +49,8 @@ class CfUserController extends Controller
 
     public function update(Request $request, cfUser $cfUser)
     {
-        if($request->keterangan != $cfUser->keterangan){
-            $rules['keterangan'] = 'required|unique:cf_users,keterangan';
+        if($request->description != $cfUser->description){
+            $rules['description'] = 'required|unique:cf_users,description';
         }
         if($request->cf_user != $cfUser->cf_user){
             $rules['cf_user'] = 'required|unique:cf_users,cf_user|numeric';

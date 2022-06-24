@@ -20,7 +20,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a href="{{ route('gejala.create') }}" class="btn bg-one font-color-default-w fw-semibold mb-3"><i class="bi bi-plus-square"></i> Tambah Data Gejala</a>
+                        <a href="{{ route('symptom.create') }}" class="btn bg-one font-color-default-w fw-semibold mb-3"><i class="bi bi-plus-square"></i> Tambah Data Gejala</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -31,14 +31,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($gejalas as $gejala)
+                            @forelse ($symptoms as $symptom)
                                 <tr>
-                                    <td>{{ $gejala->gejala }}</td>
-                                    <td>{{ $gejala->penyakit->nama }}</td>
-                                    <td>{{ $gejala->cf_role }}</td>
+                                    <td>{{ $symptom->name }}</td>
+                                    <td>{{ $symptom->disease->name }}</td>
+                                    <td>{{ $symptom->cf_role }}</td>
                                     <td class="text-center">
-                                        <form onsubmit="return confirm('Apakah Anda yakin akan menghapus data ini ?');" action="{{ route('gejala.destroy', $gejala->id) }}" method="POST">
-                                            <a href="{{ route('gejala.edit', $gejala->id) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                        <form onsubmit="return confirm('Apakah Anda yakin akan menghapus data ini ?');" action="{{ route('symptom.destroy', $symptom->id) }}" method="POST">
+                                            <a href="{{ route('symptom.edit', $symptom->id) }}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
@@ -53,8 +53,8 @@
                             </tbody>
                         </table>  
                         <div class="clear"></div>
-                        {{ $gejalas->links() }}
-                        <a href="/admin/penyakit" class="btn bg-second fw-semibold float-end">Kembali ke halaman admin</a>
+                        {{ $symptoms->links() }}
+                        <a href="/admin/dashboard" class="btn bg-second fw-semibold float-end">Kembali ke halaman admin</a>
                     </div>
                 </div>
             </div>

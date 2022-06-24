@@ -15,12 +15,13 @@ class CreateResultDiagnosesTable extends Migration
     {
         Schema::create('result_diagnoses', function (Blueprint $table) {
             $table->id();
-            $table->string('gejala');
-            $table->string('penyakit');
+            $table->string('symptoms');
+            $table->string('disease');
+            $table->string('cf_roles');
+            $table->string('cf_users');
             $table->float('total_cf_role');
-            $table->float('hasil_cbr');
-            $table->float('hasil_cf');
-            $table->string('kemungkinan');
+            $table->float('result_cbr');
+            $table->float('result_cf');
             $table->timestamps();
         });
     }

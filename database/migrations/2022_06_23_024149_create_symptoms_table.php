@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePenyakitsTable extends Migration
+class CreateSymptomsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreatePenyakitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('penyakits', function (Blueprint $table) {
+        Schema::create('symptoms', function (Blueprint $table) {
             $table->id();
-            $table->string('nama',50);
-            $table->text('keterangan');
-            $table->text('penanganan');
+            $table->foreignId('disease_id');
+            $table->string('name');
+            $table->float('cf_role');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreatePenyakitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('penyakits');
+        Schema::dropIfExists('symptoms');
     }
 }
