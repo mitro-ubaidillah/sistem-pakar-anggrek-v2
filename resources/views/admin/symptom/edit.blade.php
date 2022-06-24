@@ -28,8 +28,8 @@
                                         <div class="col-12 mb-3">
                                             <label class="label-input form-label">Nama Penyakit</label>
                                             <select class="form-select" id="inputGroupSelect01" name="disease_id">
-                                                @foreach ($diseases as $disease)
-                                                    @if ($symptom->disease->name === $disease->name)
+                                                 @foreach ($diseases as $disease)
+                                                     @if ($symptom->disease->name === $disease->name)
                                                         <option value="{{ $disease->id }}" selected>{{ $disease->name }}</option>
                                                     @else
                                                         <option value="{{ $disease->id }}">{{ $disease->name }}</option>
