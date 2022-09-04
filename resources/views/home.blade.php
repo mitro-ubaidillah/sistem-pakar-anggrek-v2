@@ -94,55 +94,49 @@
     <div class="bg-one font-color-default-w" id="#penyakit">
         <div class="container pt-5 pb-5">
             <div class="row">
-                <div class="col-12 col-md-6">
-                    <h3 class="mb-4">Penyakit</h3>
-                    <div class="row">
-                        <div class="col-md-12 mb-5">
-                            {{-- <img src="img/icon/number-1.png" alt="" class="icon-number"> --}}
-                            <span class="number-icon">1</span>
-                            <span>Penyakit Pertama</span>
-                        </div>
-                        <div class="col-md-12 mb-5">
-                            {{-- <img src="img/icon/number-1.png" alt="" class="icon-number"> --}}
-                            <span class="number-icon">2</span>
-                            <span>Penyakit Pertama</span>
-                        </div>
-                        <div class="col-md-12 mb-5">
-                            {{-- <img src="img/icon/number-1.png" alt="" class="icon-number"> --}}
-                            <span class="number-icon">3</span>
-                            <span>Penyakit Pertama</span>
-                        </div>
+                <h2 class="mb-5">Penyakit dan Hama</h2>
+                    <div class="table-responsive bg-light p-5">
+                        <table class="table table-bordered">
+                            <thead>
+                                <th>No</th>
+                                <th>Nama Penyakit</th>
+                                <th>Keterangan</th>
+                                <td>Penanganan</th>
+                            </thead>
+                            <tbody>
+                                @forelse ($penyakit as $no => $data)
+                                <tr>
+                                    <td>{{ ++$no + ($penyakit->currentPage()-1)* $penyakit->perPage() }}</td>
+                                    <td>{{ $data->name }}</td>
+                                    <td>{{ $data->description }}</td>
+                                    <td>{{ $data->treatment }}</td>
+                                </tr>
+                                @empty
+                                    
+                                @endforelse
+                            </tbody>
+                        </table>
+                        {{ $penyakit->links() }}
                     </div>
-                </div>
-                <div class="col-12 col-md-6 text-end">
-                    <h5 class="mb-4">Hama</h5>
-                    <div class="row">
-                        <div class="col-md-12 mb-5">
-                            {{-- <img src="img/icon/number-1.png" alt="" class="icon-number"> --}}
-                            <span>Penyakit Pertama</span>
-                            <span class="number-icon">1</span>
-                        </div>
-                        <div class="col-md-12 mb-5">
-                            {{-- <img src="img/icon/number-1.png" alt="" class="icon-number"> --}}
-                            <span>Penyakit Pertama</span>
-                            <span class="number-icon">2</span>
-                        </div>
-                        <div class="col-md-12 mb-5">
-                            {{-- <img src="img/icon/number-1.png" alt="" class="icon-number"> --}}
-                            <span>Penyakit Pertama</span>
-                            <span class="number-icon">3</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
     <div class="container text-center pt-5 pb-5 font-color-default" id="bukupanduan">
         <h2 class="mb-5">Panduan Penggunaan Aplikasi</h2>
         <p class="mb-4"><span class="number-icon border-black">1</span></p>
-        <p class="mb-4">Penyakit Pertama</p>
+        <p>Buka Website Diagnosa Tanaman Anggrek</p>
+        <img src="{{ asset('img/icon/arrow-black.png') }}" alt="" width="15vh" class="mb-5">
         <p><span class="number-icon border-black">2</span></p>
-        <p>Penyakit Pertama</p>
+        <p class="mb-4">Pilih Menu Diagnosa</p>
+        <img src="{{ asset('img/icon/arrow-black.png') }}" alt="" width="15vh" class="mb-5">
+        <p><span class="number-icon border-black">3</span></p>
+        <p class="mb-4">Masukan Tingkat Keyakinan Gejala Sesuai Dengan Yang dialami tanaman anggrek pengguna</p>
+        <img src="{{ asset('img/icon/arrow-black.png') }}" alt="" width="15vh" class="mb-5">
+        <p><span class="number-icon border-black">4</span></p>
+        <p class="mb-4">Tekan Diagnosa</p>
+        <img src="{{ asset('img/icon/arrow-black.png') }}" alt="" width="15vh" class="mb-5">
+        <p><span class="number-icon border-black">5</span></p>
+        <p class="mb-4">Akan muncul hasil diagnosa, menggunakan algoritma CBR dan perhitungan Crtainty Factor</p>
     </div>
 </main>
 @endsection

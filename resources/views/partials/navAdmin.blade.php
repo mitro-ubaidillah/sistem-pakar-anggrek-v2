@@ -8,7 +8,7 @@
         <div class="navbar-nav ms-auto">
           <a class="nav-link font-color-default-w fw-semibold" href="{{ route('disease.index') }}">Daftar Penyakit</a>
           <a class="nav-link font-color-default-w fw-semibold" href="{{ route('symptom.index') }}">Daftar Gejala</a>
-          <a class="nav-link font-color-default-w fw-semibold" href="{{ route('cfUser.index') }}">Daftar CF User</a>
+          <a class="nav-link font-color-default-w fw-semibold" href="{{ route('cases.index') }}">Daftar Kasus Lama</a>
         </div>
       </div>
     </div>

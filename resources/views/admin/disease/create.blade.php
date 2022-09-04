@@ -26,11 +26,21 @@
                                         </div>
                                         <div class="col-12 mb-3">
                                             <label class="label-input form-label">Keterangan Penyakit</label>
-                                            <textarea class="form-control" name="description" aria-label="With textarea" required>{{ old('description') }}</textarea>
+                                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" aria-label="With textarea" required>{{ old('description') }}</textarea>
+                                            @error('description')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="col-12 mb-3">
                                             <label class="label-input form-label">Penanganan Penyakit</label>
-                                            <textarea class="form-control" name="treatment" aria-label="With textarea" required>{{ old('treatment') }}</textarea>
+                                            <textarea class="form-control @error('treatment') is-invalid @enderror" name="treatment" aria-label="With textarea" required>{{ old('treatment') }}</textarea>
+                                            @error('treatment')
+                                                <div class="invalid-feedback">
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
                                         </div>
                                         <div class="col-lg-12 text-end">
                                             <button type="reset" class="btn bg-danger-new fw-semibold font-color-default-w">Batal</button>

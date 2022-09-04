@@ -27,7 +27,7 @@
         @enderror
       </div>
       <div class="form-floating mb-3">
-        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
         <label for="floatingPassword">Password</label>
       </div>
   

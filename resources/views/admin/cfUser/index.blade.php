@@ -20,18 +20,20 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a href="{{ route('cfUser.create') }}" class="btn bg-one font-color-default-w fw-semibold mb-3"><i class="bi bi-plus-square"></i> Tambah Data CF User</a>
+                        <a href="{{ route('cfUser.create') }}" class="btn bg-one font-color-default-w fw-semibold mb-3"><i class="bi bi-plus-square"></i> Tambah Data Tingkat Keyakinan</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
+                                    <th scope="col" width="1%">No</th>
                                     <th scope="col">Nama</th>
-                                    <th scope="col">CF User</th>
+                                    <th scope="col">Tingkat Keyakinan</th>
                                     <th scope="col">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            @forelse ($cfUsers as $cfUser)
+                            @forelse ($cfUsers as $no => $cfUser)
                                 <tr>
+                                    <td>{{ ++$no + ($cfUsers->currentPage()-1)* $cfUsers->perPage()}}</td>
                                     <td>{{ $cfUser->description }}</td>
                                     <td>{{ $cfUser->cf_user }}</td>
                                     <td class="text-center">
@@ -45,7 +47,7 @@
                                 </tr>
                             @empty
                                 <div class="alert alert-danger">
-                                    Data CF User belum Tersedia
+                                    Data Keyakinan belum Tersedia
                                 </div>
                             @endforelse
                             </tbody>

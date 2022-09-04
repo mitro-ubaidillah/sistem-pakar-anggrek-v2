@@ -1,12 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    /* user-select: none; */
 }
 body{
-    background-color: #F5F5F5;
-    box-sizing: border-box;
+    /* font-family: 'Roboto', sans-serif; */
+    background-color: #F5F5F5;   
 }
-
 /* background */
 .bg-one{
     background-color: #303481;
@@ -28,12 +30,19 @@ body{
     font-weight: bold;
 }
 
+.btn-procedure{
+    border: 2px solid #4c6f5f;
+    font-weight: bold;
+    color: #4c6f5f;
+}
+
 .btn-custom-one{
     background-color: #303481;
     color: #F5F5F5;
     font-weight: 600;
     font-size: 1.3 rem;
-    padding: 20px 10px;
+    padding: 3vh;
+    width: 100%;
 }
 
 /* navbar */
@@ -162,4 +171,29 @@ border-bottom-left-radius: 0;
 margin-bottom: 10px;
 border-top-left-radius: 0;
 border-top-right-radius: 0;
+}
+
+.label-diagnosa{
+    font-size: 1.1rem;
+    font-weight: 500;
+    /* margin-top: 10px; */
+    margin-bottom: 10px;
+}
+
+.btns-diagnosa{
+    float: right;
+    margin-left: 10px;
+}
+
+.display-admin{
+    padding: 2vh;
+    border: 4px solid #303481;
+    color: #303481;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 570px) {
+    .label-diagnosa{font-size: 1rem;text-align: justify;}
+    .btns-diagnosa a, .btns-diagnosa button{width: 100%;margin-top: 10px;}
 }

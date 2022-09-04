@@ -12,6 +12,10 @@ class Symptom extends Model
 
     public function disease()
     {
-        return $this->belongsTo(Disease::class);
+        return $this->belongsTo(Disease::class, 'disease_id');
+    }
+    public function cf()
+    {
+        return $this->belongsTo(cfUser::class, 'cf_role');
     }
 }

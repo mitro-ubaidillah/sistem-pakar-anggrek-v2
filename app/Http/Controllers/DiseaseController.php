@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Disease;
+use App\Models\Symptom;
 use Illuminate\Http\Request;
 
 class DiseaseController extends Controller
@@ -25,17 +26,18 @@ class DiseaseController extends Controller
     {
         // dd($request->all());
         $validateData = $request->validate([
-            'name'          => 'required|unique:diseases,name',
+            'name'          => 'required|unique:diseases,name|regex:/^[\pL\s\-]+$/u',
             'description'    => 'required',
             'treatment'    => 'required'
         ]);
 
         Disease::create($validateData);
-        return redirect('/admin/disease')->with('success', 'Penyakit berhasil didaftarkan!');
+        return redirect('/admin/disease')->with('successAddDisease', 'Penyakit berhasil didaftarkan!');
     }
 
     public function edit(Disease $disease)
     {
+        // dd($disease);
         $title = "Halaman Edit Penyakit";
         return view('admin.disease.edit', compact('disease', 'title'));
     }
@@ -48,7 +50,7 @@ class DiseaseController extends Controller
         ];
 
         if($request->name != $disease->name){
-            $rules['name'] = 'required|unique:diseases,name';
+            $rules['name'] = 'required|unique:diseases,name|regex:/^[\pL\s\-]+$/u';
         }
         $validateData = $request->validate($rules);
 
@@ -60,6 +62,7 @@ class DiseaseController extends Controller
     {
         $disease = Disease::findOrFail($id);
         $disease->delete();
+        Symptom::where('disease_id', $id)->delete();
         return redirect('/admin/disease')->with('success', 'Penyakit berhasil dihapus!');
     }
 }

@@ -16,7 +16,8 @@ class CreateSymptomsTable extends Migration
         Schema::create('symptoms', function (Blueprint $table) {
             $table->id();
             $table->foreignId('disease_id');
-            $table->string('name');
+            $table->string('name');       
+            $table->string('section');
             $table->float('cf_role');
             $table->timestamps();
         });
